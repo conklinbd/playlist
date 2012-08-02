@@ -4,8 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=7, IE=9">
     <title>A story map presented by Esri</title>
-    <link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/2.7/js/dojo/dijit/themes/tundra/tundra.css">
-    <link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/2.7/js/esri/dijit/css/Popup.css">    
+    <link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/3.0/js/dojo/dijit/themes/tundra/tundra.css">
+    <link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/3.0/js/esri/dijit/css/Popup.css">
     <link rel="stylesheet" type="text/css" href="css/layout.css"/>
     <link rel="stylesheet" type="text/css" href="css/popup.css"/>
 
@@ -14,23 +14,23 @@
         parseOnLoad: true
       };
     </script>
-    <script type="text/javascript" src="http://serverapi.arcgisonline.com/jsapi/arcgis/?v=2.7compact"></script>
+    <script type="text/javascript" src="http://serverapi.arcgisonline.com/jsapi/arcgis/?v=3.0compact"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="javascript/jquery.autoellipsis-1.0.3.min.js"></script>
     <script type="text/javascript" src="javascript/map.js"></script>
     <script type="text/javascript" src="javascript/layout.js"></script>
-    
+
     <script type="text/javascript">
 		var configOptions;
-		
+
 		function init(){
-		
+
 		  configOptions = {
 			//The ID for the map from ArcGIS.com
 			webmaps : [{
 				"id": "8b3e4602ed7c4b40a1a69195c23b15de"
 			},{
-				"id": "b74b1b5f75cf49cfbdbb9cb6897f688e"
+				"id": "8b3e4602ed7c4b40a1a69195c23b15de"
 			}],
 			//Enter a title, if no title is specified, the webmap's title is used.
 			title : "",
@@ -44,23 +44,22 @@
 			bingmapskey : "",
 			//specify a proxy url if needed
 			proxyurl:"",
-			//specify the url to a geometry service 
+			//specify the url to a geometry service
 			geometryserviceurl:"http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer",
 		   //Modify this to point to your sharing service URL if you are using the portal
 			sharingurl :"http://arcgis.com/sharing/content/items"
 		  };
-		  
+
 		   initMap();
 	   }
-	
-		  //show map on load 
+
+		  //show map on load
 		  dojo.addOnLoad(init);
     </script>
-    
+
     <style type="text/css">
 	  .esriSimpleSlider{
 	    background-color:#dadada;
-		right:10px;
 	    left:auto;
 	  }
 	</style>
@@ -81,8 +80,8 @@
   	  })();
 	</script>
 	<!--Google Analytics End-->
-  </head>	
-   
+  </head>
+
       <body class="tundra">
         <div id="mainWindow" dojotype="dijit.layout.BorderContainer" design="headline"
         gutters="false" style="width:100%; height:100%;">
@@ -123,7 +122,7 @@
           </div>
 
         </div>
-        
+
         <!--Loading Panel-->
         <div id="loadingCon">
     		<div id="loadingDialog">
@@ -133,7 +132,7 @@
     		    </div>
    		    </div>
  		  </div>
-       
+
        </body>
 
   </html>
