@@ -49,7 +49,12 @@ function initMap() {
         configOptions.bingmapskey = urlObject.query.bingMapsKey;      
       }
 	  
-   	 createMaps(); 
+      
+     if (configOptions.webmaps.length === 1){
+         $("#tabs").hide();
+     }
+     
+   	 createMaps();
 }
 
 
@@ -188,6 +193,7 @@ function hideLoader(){
 			});
 			$("#mapBlind").fadeOut();
 			$("#loadingCon").hide();
+            dijit.byId("mainWindow").layout();
 		}
 		else{
 			mapsLoaded++
