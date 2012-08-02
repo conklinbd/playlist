@@ -191,25 +191,25 @@ function startUpListeners(index){
 	});
 	dojo.connect(_maps[index],"onClick",function(){
 		popupOpen = true;
-        $("#hoverInfo").hide();
 	});
 	dojo.connect(_popup[index],"onHide",function(){
 		popupOpen = false;
 		_popup[index].clearFeatures();
+        $(".storyPoint").removeClass('selection');
 	});
-	 dojo.connect(_storyPoints[index], "onClick", function(event) {
+	dojo.connect(_storyPoints[index], "onClick", function(event) {
+        _popup[index].hide();
         var scrollTop = ($("#storyPoints").scrollTop());
+        $("#hoverInfo").hide();
         $(".storyPoint").removeClass("selection");
-        dojo.forEach(_storyData, function(sp) {
-            if (event.graphic.attributes == sp.data('attributes')) {
-                selection = sp;
-                if (sp.position().top < 0) {
-                    var pos = $("#storyPoints").scrollTop() + sp.position().top;
-                    $("#storyPoints").scrollTop(pos);
+        $(".storyPoint").each(function(){
+            if ($(this).data("attributes") === event.graphic.attributes){
+                $(this).addClass("selection");
+                if($(this).position().top < 0){
+                    $("#storyPoints").scrollTop(scrollTop + $(this).position().top);
                 }
-                else if (sp.position().top >= $("#storyPoints").height()) {
-                    var pos = $("#storyPoints").scrollTop() + sp.position().top - $("#storyPoints").height() + sp.height();
-                    $("#storyPoints").scrollTop(pos);
+                else if($(this).position().top +$(this).height() > $("#storyPoints").height()){
+                    $("#storyPoints").scrollTop($("#storyPoints").scrollTop() + $(this).position().top - $("#storyPoints").height() + $(this).height());
                 }
             }
         });
@@ -217,6 +217,19 @@ function startUpListeners(index){
 	$(".storyPoint").mouseover(function(e) {
         $(".storyPoint").removeClass('active');
 		$(this).addClass('active');
+        if (popupOpen == false){
+    		$("#hoverInfo").html($(this).data('title'));
+			var pt = _maps[index].toScreen($(this).data('geometry'));
+			hoverInfoPos(pt.x,pt.y);
+			var attr = $(this).data('attributes');
+			dojo.forEach(_storyPoints,function (lyr,idx){
+				dojo.forEach(lyr.graphics,function(graphic,ix){
+					if (graphic.attributes == attr){
+						graphic.setSymbol(graphic.symbol.setHeight(34).setWidth(27).setOffset(3,10));
+					}
+				});
+			});
+		}
     });
 	$(".storyPoint").click(function(e) {
         popupOpen = true;
@@ -234,9 +247,16 @@ function startUpListeners(index){
 				}
 			});
 		});
+        $("#hoverInfo").hide();
     });
 	$("#storyPoints").mouseout(function(e) {
         $(".storyPoint").removeClass('active');
+        $("#hoverInfo").hide();
+        dojo.forEach(_storyPoints,function (lyr,idx){
+    		dojo.forEach(lyr.graphics,function(graphic,ix){
+				graphic.setSymbol(graphic.symbol.setHeight(28).setWidth(22).setOffset(3,8));
+			});
+		});
     });
 
 	$(".tab").click(function(e) {
