@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7, IE=9">
+    <title>A story map presented by Esri</title>
+    <link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/2.7/js/dojo/dijit/themes/tundra/tundra.css">
+    <link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/2.7/js/esri/dijit/css/Popup.css">    
+    <link rel="stylesheet" type="text/css" href="css/layout.css"/>
+    <link rel="stylesheet" type="text/css" href="css/popup.css"/>
+
+     <script type="text/javascript">
+      var djConfig = {
+        parseOnLoad: true
+      };
+    </script>
+    <script type="text/javascript" src="http://serverapi.arcgisonline.com/jsapi/arcgis/?v=2.7compact"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="javascript/jquery.autoellipsis-1.0.3.min.js"></script>
+    <script type="text/javascript" src="javascript/map.js"></script>
+    <script type="text/javascript" src="javascript/layout.js"></script>
+    
+    <script type="text/javascript">
+		var configOptions;
+		
+		function init(){
+		
+		  configOptions = {
+			//The ID for the map from ArcGIS.com
+			webmaps : [{
+				"id": "8b3e4602ed7c4b40a1a69195c23b15de"
+			},{
+				"id": "b74b1b5f75cf49cfbdbb9cb6897f688e"
+			}],
+			//Enter a title, if no title is specified, the webmap's title is used.
+			title : "",
+			//Enter a subtitle, if not specified the ArcGIS.com web map's summary is used
+			subtitle : "",
+			//Enter a description, if not specified the ArcGIS.com web map's summary is used
+			description : "",
+			//Loop through time animation: choose true or false
+			loop : false,
+			//If the webmap uses Bing Maps data, you will need to provided your Bing Maps Key
+			bingmapskey : "",
+			//specify a proxy url if needed
+			proxyurl:"",
+			//specify the url to a geometry service 
+			geometryserviceurl:"http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer",
+		   //Modify this to point to your sharing service URL if you are using the portal
+			sharingurl :"http://arcgis.com/sharing/content/items"
+		  };
+		  
+		   initMap();
+	   }
+	
+		  //show map on load 
+		  dojo.addOnLoad(init);
+    </script>
+    
+    <style type="text/css">
+	  .esriSimpleSlider{
+	    background-color:#dadada;
+		right:10px;
+	    left:auto;
+	  }
+	</style>
+    <!--Social Media Links-->
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "77225c91-2742-42f7-b1b4-bddda99a9bde"}); </script>
+    <!--END Social Media Links-->
+    <!--Google Analytics Start-->
+	<script type="text/javascript">
+  	  var _gaq = _gaq || [];
+  	  _gaq.push(['_setAccount', 'UA-26529417-1']);
+  	  _gaq.push(['_trackPageview']);
+
+  	  (function() {
+   	     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    	   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    	   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  	  })();
+	</script>
+	<!--Google Analytics End-->
+  </head>	
+   
+      <body class="tundra">
+        <div id="mainWindow" dojotype="dijit.layout.BorderContainer" design="headline"
+        gutters="false" style="width:100%; height:100%;">
+
+          <!-- Header Section-->
+          <div id="header" dojotype="dijit.layout.ContentPane" region="top">
+              <div id="headerText">
+                <div id="title"></div>
+                <div id="subtitle"></div>
+              </div>
+              <div id="logoArea">
+                <div id="social"><a id="msLink" href="http://storymaps.esri.com" target="_blank">A story map </a><span class='st_facebook'></span><span class='st_twitter'></span>
+                </div>
+                <div id="logo"><a id="logoLink" href="http://www.esri.com" target="_blank"><img id="logoImg" src="images/esriGlobeLogow.png" alt="Esri - Home"></a></div>
+              </div>
+          </div>
+
+          <!--Sidebar Section-->
+          <div dojotype="dijit.layout.BorderContainer" id="leftPane" region="left" gutters="false">
+          	<div id="storyTabs" dojotype="dijit.layout.BorderContainer" gutters="false" region="top">
+            	<div id="tabs" dojotype="dijit.layout.ContentPane" region="top">
+            	</div><!--/tabs-->
+                <div id="description" dojotype="dijit.layout.ContentPane" region="center">
+            	</div><!--/description-->
+            </div><!--/storyTabs-->
+            <div id="storyPoints" dojotype="dijit.layout.ContentPane" region="center">
+            </div><!--/storyTab-->
+          </div>
+
+          <!-- Map Section -->
+          <div id="map" dojotype="dijit.layout.ContentPane" region="center">
+          	<div id="legendCon">
+	         	<div id="legendDiv"></div>
+              	<div id="legendToggle"><p id="legTogText">MAP LEGEND ▼</p></div>
+            </div>
+          	<div id="mapBlind"></div>
+            <div id="hoverInfo"></div>
+          </div>
+
+        </div>
+        
+        <!--Loading Panel-->
+        <div id="loadingCon">
+    		<div id="loadingDialog">
+     			<div id="loadingHeader"></div>
+     			 <div id="loading">Loading map from ArcGIS Online<br />
+       			 <img id="loadingImg" alt="" src="images/progressBar.gif">
+    		    </div>
+   		    </div>
+ 		  </div>
+       
+       </body>
+
+  </html>
