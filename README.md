@@ -7,9 +7,9 @@ This template provides a starting point for creating your web application. This 
 
 ### Table of Contents
 
-- [Install the web applciation](#-install-the-web-application)
-- [Configure the application](#-configure-the-application)
-- [Personalize the application](#-personalize-the-application)
+- [Install the web applciation](#install-the-web-application)
+- [Configure the application](#configure-the-application)
+- [Personalize the application](#personalize-the-application)
 
 
 ### Install the web application
@@ -20,7 +20,7 @@ These instructions assume that you have a Web server like [Internet Information 
 2. (Optional). If your application edits features in a feature service or generates requests that exceed 2000 characters you may need to setup and use a proxy page. Common situations where you may exceed the URL length are, using complext polygons as input to a task or specifying a spatial reference using well-known text (wkt). View the [Using the proxy page](http://help.arcgis.com/EN/webapi/javascript/arcgis/help/jshelp_start.htm#jshelp/ags_proxy.htm) help topic for details on installing and configuring a proxy page.
 3. Test the page using the following URL: http://localhost/[template name]/index.html, where [template name] is the name of the folder where you extracted the zip contents.
 
-[Top](#-Playlist)
+[Top](#Playlist)
 
 
 ### Configure the application
@@ -64,7 +64,7 @@ Now let's configure the application to use a different ArcGIS Online group, titl
 
 4. Save the file then test your [application](http://localhost/Chrome/index.html) and note that it now displays your application and if specified your custom title and subtitle.
 
-[Top](#-Playlist)
+[Top](#Playlist)
 
 ### Personalize the application
 
@@ -82,4 +82,4 @@ You can personalize your site by adding a custom logo to the application's heade
 4. Run the application and the custom logo should appear to the left of the title in the application header.
 
 
-[Top](#-Playlist)
+[Top](#Playlist)
