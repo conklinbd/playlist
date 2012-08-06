@@ -4,8 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=7, IE=9">
     <title>A story map presented by Esri</title>
-    <link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/3.0/js/dojo/dijit/themes/tundra/tundra.css">
-    <link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/3.0/js/esri/dijit/css/Popup.css">
+    <link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/3.1/js/dojo/dijit/themes/tundra/tundra.css">
+    <link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/3.1/js/esri/dijit/css/Popup.css">
     <link rel="stylesheet" type="text/css" href="css/layout.css"/>
     <link rel="stylesheet" type="text/css" href="css/popup.css"/>
 
@@ -14,7 +14,7 @@
         parseOnLoad: true
       };
     </script>
-    <script type="text/javascript" src="http://serverapi.arcgisonline.com/jsapi/arcgis/?v=3.0compact"></script>
+    <script type="text/javascript" src="http://serverapi.arcgisonline.com/jsapi/arcgis/?v=3.1compact"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="javascript/jquery.autoellipsis-1.0.3.min.js"></script>
     <script type="text/javascript" src="javascript/map.js"></script>
@@ -36,8 +36,6 @@
 			subtitle : "",
 			//Enter a description, if not specified the ArcGIS.com web map's summary is used
 			description : "",
-			//Loop through time animation: choose true or false
-			loop : false,
 			//If the webmap uses Bing Maps data, you will need to provided your Bing Maps Key
 			bingmapskey : "",
 			//specify a proxy url if needed
@@ -61,23 +59,6 @@
 	    left:auto;
 	  }
 	</style>
-    <!--Social Media Links-->
-    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-<script type="text/javascript">stLight.options({publisher: "77225c91-2742-42f7-b1b4-bddda99a9bde"}); </script>
-    <!--END Social Media Links-->
-    <!--Google Analytics Start-->
-	<script type="text/javascript">
-  	  var _gaq = _gaq || [];
-  	  _gaq.push(['_setAccount', 'UA-26529417-1']);
-  	  _gaq.push(['_trackPageview']);
-
-  	  (function() {
-   	     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    	   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    	   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  	  })();
-	</script>
-	<!--Google Analytics End-->
   </head>
 
       <body class="tundra">
@@ -91,9 +72,6 @@
                 <div id="subtitle"></div>
               </div>
               <div id="logoArea">
-                <div id="social"><a id="msLink" href="http://storymaps.esri.com" target="_blank">A story map </a><span class='st_facebook'></span><span class='st_twitter'></span>
-                </div>
-                <div id="logo"><a id="logoLink" href="http://www.esri.com" target="_blank"><img id="logoImg" src="images/esriGlobeLogow.png" alt="Esri - Home"></a></div>
               </div>
           </div>
 
