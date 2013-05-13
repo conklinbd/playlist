@@ -99,7 +99,7 @@ function generateGraphics(index){
 					var group;
 					var fileChange;
 					if(graphic.attributes.Color){
-						if (graphic.attributes.Color.toLowerCase() == "B"){
+						if (graphic.attributes.Color.toLowerCase() == "b"){
 							group = 'blue';
 							fileChange = 'b';
 						}
