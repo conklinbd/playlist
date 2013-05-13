@@ -66,7 +66,7 @@ function findLayers(layers,index){
 function generateGraphics(index){
 	var shaded = true;
 	dojo.forEach(_csvLayers[index],function(layer,i){
-		if (i < 2){
+		if (i < 1){
 			layer.hide();
 
 			$("#story"+index).append("<div id='story"+index+"group"+i+"' class='group'></div>");
@@ -98,13 +98,15 @@ function generateGraphics(index){
 
 					var group;
 					var fileChange;
-					if (i == 2){
-						group = 'green';
-						fileChange = '';
-					}
-					else if (i == 1){
-						group = 'blue';
-						fileChange = 'b';
+					if(graphic.attributes.Color){
+						if (graphic.attributes.Color.toLowerCase() == "B"){
+							group = 'blue';
+							fileChange = 'b';
+						}
+						else{
+							group = 'red';
+							fileChange = '';
+						}
 					}
 					else{
 						group = 'red';
