@@ -75,9 +75,9 @@ function generateGraphics(index){
 			map.addLayer(sp);
 			_storyPoints[index] = sp;
 
-			if (layer.graphics[0].attributes.order){
+			if (layer.graphics[0].attributes.Order){
 				layer.graphics.sort(function(a,b){
-					return a.attributes.order - b.attributes.order;
+					return a.attributes.Order - b.attributes.Order;
 				});
 			}
 
@@ -118,8 +118,8 @@ function generateGraphics(index){
 					var sym = new esri.symbol.PictureMarkerSymbol("images/icons/"+group+"/NumberIcon"+fileChange+(j+1)+".png", 22, 28).setOffset(3,8);
 					var info = layer.infoTemplate;
 
-					if (graphic.attributes.order){
-						$("#story"+index+"group"+i+"point"+j).append("<div id='story"+index+"group"+i+"indexCon"+j+"' class='indexCon "+group+"'><div id='story"+index+"group"+i+"pointIndex"+j+"' class='pointIndex'>"+graphic.attributes.order+"</div></div>");
+					if (graphic.attributes.Order){
+						$("#story"+index+"group"+i+"point"+j).append("<div id='story"+index+"group"+i+"indexCon"+j+"' class='indexCon "+group+"'><div id='story"+index+"group"+i+"pointIndex"+j+"' class='pointIndex'>"+graphic.attributes.Order+"</div></div>");
 					}
 					else{
 						$("#story"+index+"group"+i+"point"+j).append("<div id='story"+index+"group"+i+"indexCon"+j+"' class='indexCon "+group+"'><img id='story"+index+"group"+i+"pointIndex"+j+"' class='pointIndex' src='images/icons/"+group+"/NumberIcon"+fileChange+(j+1)+".png'></div>");
@@ -130,7 +130,7 @@ function generateGraphics(index){
 					}
 					*/
 
-					var image = graphic.attributes.img || checkImg(graphic.attributes);
+					var image = graphic.attributes.Thumb_URL || checkImg(graphic.attributes);
 					var ifImg = true;
 
 					if (image != null && image != "http://www.landscope.org/_res/img/contentTypeThumbnails/articleSmall.png"){
@@ -140,7 +140,7 @@ function generateGraphics(index){
 						ifImg = false;
 					}
 
-					var title = graphic.attributes.title || findTitle(graphic.attributes);
+					var title = graphic.attributes.Name || findTitle(graphic.attributes);
 
 					$("#story"+index+"group"+i+"point"+j).data("title", title);
 
