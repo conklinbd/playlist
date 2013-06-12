@@ -177,7 +177,7 @@ function generateGraphics(index){
 }
 
 function startUpListeners(index){
-	dojo.connect(_storyPoints[index],"onMouseOver",function(){
+	dojo.connect(_storyPoints[index],"onMouseOver",function(event){
 		_maps[index].setCursor('pointer');
 		event.graphic.setSymbol(event.graphic.symbol.setHeight(34).setWidth(27).setOffset(3,10));
         if (popupOpen == false){
@@ -186,7 +186,7 @@ function startUpListeners(index){
 			hoverInfoPos(pt.x,pt.y);
 		}
 	});
-	dojo.connect(_storyPoints[index],"onMouseOut",function(){
+	dojo.connect(_storyPoints[index],"onMouseOut",function(event){
 		_maps[index].setCursor('default');
 		event.graphic.setSymbol(event.graphic.symbol.setHeight(28).setWidth(22).setOffset(3,8));
         $("#hoverInfo").hide();

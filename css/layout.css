@@ -254,6 +254,9 @@
  	  width:300px !important;
 	  margin-left:100px;
   	  z-index:100;
+  	  border-right: 2px solid #848484; 
+  	  border-left: 2px solid #848484;
+  	  border-bottom: 2px solid #848484;
 	  }
 
 	  #legendDiv{
@@ -273,7 +276,6 @@
 	  position:relative;
 	  background:#848484;
 	  margin-top:-1px;
-	  width:125px;
 	  .height:28px;
 	  cursor:pointer;
 	  z-index:100;

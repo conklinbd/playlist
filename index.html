@@ -53,12 +53,13 @@
 		  dojo.addOnLoad(init);
     </script>
 
-    <style type="text/css">
-	  .esriSimpleSlider{
-	    background-color:#dadada;
-	    left:auto;
-	  }
-	</style>
+    <!--Social Media Links-->
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">
+        stLight.options({publisher: "77225c91-2742-42f7-b1b4-bddda99a9bde"});
+    </script>
+    <!--END Social Media Links-->
+
   </head>
 
       <body class="tundra">
@@ -72,6 +73,10 @@
                 <div id="subtitle"></div>
               </div>
               <div id="logoArea">
+                <div id="social"><a id="msLink" href="http://storymaps.esri.com" target="_blank">A story map </a><span class='st_facebook'></span><span class='st_twitter' st_via='EsriStoryMaps'></span><span class='st_sharethis'></span>
+                </div>
+                <div id="logo"><a id="logoLink" href="http://www.esri.com" target="_blank"><img id="logoImg" src="images/esriGlobeLogow.png" alt="Esri - Home"></a>
+                </div>
               </div>
           </div>
 
@@ -90,8 +95,8 @@
           <!-- Map Section -->
           <div id="map" dojotype="dijit.layout.ContentPane" region="center">
           	<div id="legendCon">
+            <div id="legendToggle"><p id="legTogText">MAP LEGEND ▼</p></div>
 	         	<div id="legendDiv"></div>
-              	<div id="legendToggle"><p id="legTogText">MAP LEGEND ▼</p></div>
             </div>
           	<div id="mapBlind"></div>
             <div id="hoverInfo"></div>

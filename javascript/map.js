@@ -103,12 +103,12 @@ function createMaps(){
         var layers = response.itemInfo.itemData.operationalLayers;
 		
         if(map.loaded){
-          initUI(layers, i);
+          initUI(response, i);
 		  findLayers(layers,i);
         }
         else{
           dojo.connect(map,"onLoad",function(){
-            initUI(layers, i);
+            initUI(response, i);
 			findLayers(layers,i);
           });
         }
@@ -123,7 +123,7 @@ function createMaps(){
 }
 
 
-    function initUI(layers, i) {
+    function initUI(response, i) {
       //add chrome theme for popup
       dojo.addClass(map.infoWindow.domNode, "chrome");
       //add the scalebar 
@@ -132,8 +132,15 @@ function createMaps(){
         scalebarUnit:"english" //metric or english
       });
 
-      var layerInfo = buildLayersList(layers);      
+      $(".esriSimpleSliderIncrementButton").addClass("zoomButtonIn");
+      $(".zoomButtonIn").each(function (i) {
+        $(this).after("<div class='esriSimpleSliderIncrementButton initExtentButton'><img style='margin-top:5px' src='images/home.png'></div>");
+        $(".initExtentButton").click(function () {
+            map.setExtent(map._mapParams.extent);
+        });
+      });
 
+      var layerInfo = esri.arcgis.utils.getLegendLayers(response);
       
       if(layerInfo.length > 0){
         var legendDijit = new esri.dijit.Legend({
