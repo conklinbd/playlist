@@ -150,7 +150,7 @@ function createMaps(){
         legendDijit.startup();
       }
       else{
-        dojo.byId('legendDiv'+i).innerHTML = '';
+        $("#legendDiv").hide();
       }
 	}
 	
