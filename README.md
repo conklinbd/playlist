@@ -1,9 +1,9 @@
 # Playlist
 ## A storytelling template provided by Esri
 
-- [Sample App](http://downloads.esri.com/agol/pub/npstop102012/index.html);
-- [Sample Data](http://www.arcgis.com/sharing/content/items/d0c16110531a43cda47a9d26f6981211/data);
-- [Build your first playlist app](http://blogs.esri.com/esri/arcgis/2013/06/17/using-storytelling-playlist-template/);
+- [Sample App](http://downloads.esri.com/agol/pub/npstop102012/index.html)
+- [Sample Data](http://www.arcgis.com/sharing/content/items/d0c16110531a43cda47a9d26f6981211/data)
+- [Build your first playlist app](http://blogs.esri.com/esri/arcgis/2013/06/17/using-storytelling-playlist-template/)
 
 
 This template provides a starting point for creating your web application. This easily configurable template allows you to define the webmap, title and subtitle for the site. This read-me file explains how to setup and configure the template to run on your web server. We've also provided a few tips on how to personalize the template by adding a company logo.
